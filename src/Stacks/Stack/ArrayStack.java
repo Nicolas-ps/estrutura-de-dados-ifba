@@ -1,4 +1,4 @@
-package Stack;
+package Stacks.Stack;
 
 public class ArrayStack implements Stackable {
     private final Object[] data;

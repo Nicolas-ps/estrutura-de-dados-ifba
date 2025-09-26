@@ -1,4 +1,4 @@
-package Stack;
+package Stacks.Stack;
 
 import java.util.Scanner;
 
