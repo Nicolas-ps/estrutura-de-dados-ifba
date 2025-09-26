@@ -1,4 +1,7 @@
 ### IntelliJ IDEA ###
+.idea
+estrutura_de_dados_bsi.iml
+
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
