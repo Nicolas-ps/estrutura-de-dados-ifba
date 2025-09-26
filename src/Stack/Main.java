@@ -1,9 +1,7 @@
-import aula_18_08_2025_01.ArrayStack;
+package Stack;
 
 import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         boolean run = true;
@@ -20,19 +18,28 @@ public class Main {
         while (run) {
             System.out.print("\nDigite a ação: ");
             int option = scanner.nextInt();
-            Object value;
 
+
+            Object value;
             switch (option) {
                 case 1:
                     System.out.print("Digite qualquer valor a ser adicionado na pilha: ");
                     value = scanner.next();
-                    arrayStack.push(value);
-                    System.out.println(arrayStack.print());
+
+                    boolean push = arrayStack.push(value);
+                    if (!push) {
+                        System.out.print("Houve um problema ao empilhar! Verifique se a pilha não está cheia!\n");
+                    }
+
                     break;
                 case 2:
-                    arrayStack.pop();
+                    Object pop = arrayStack.pop();
+                    if (pop == null) {
+                        System.out.print("Houve um problema ao desempilhar! Provavelmente a pilha está vazia!\n");
+                        break;
+                    }
+
                     System.out.println("A pilha foi desempilhada!");
-                    System.out.println(arrayStack.print());
                     break;
                 case 3:
                     System.out.println(arrayStack.print());
@@ -42,6 +49,7 @@ public class Main {
                     break;
                 case 0:
                     run = false;
+                    break;
             }
         }
     }
