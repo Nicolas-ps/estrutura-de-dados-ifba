@@ -6,4 +6,5 @@ public interface DoubleStackable {
     Object peek(int arrayStackIndex);
     boolean isFull(int arrayStackIndex);
     boolean isEmpty(int arrayStackIndex);
+    void print();
 }
