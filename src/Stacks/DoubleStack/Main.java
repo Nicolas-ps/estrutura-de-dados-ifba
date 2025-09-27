@@ -62,22 +62,29 @@ public class Main {
     }
 
     private static void actionTwo() {
-        System.out.println("Digite o ID da pilha que deve ser desempilhada: ");
+        System.out.print("Digite o ID da pilha que deve ser desempilhada: ");
         int stackIndex = scanner.nextInt();
 
         Object pop = doubleArrayStack.pop(stackIndex);
         if (pop == null) {
             System.out.print("Houve um problema ao desempilhar! Provavelmente a pilha está vazia!\n");
+            return;
         }
 
         System.out.print("A pilha foi desempilhada!");
     }
 
     private static void actionThree() {
-        System.out.println("Digite o ID da pilha que você deseja espiar: ");
+        System.out.print("Digite o ID da pilha que você deseja espiar: ");
         int stackIndex = scanner.nextInt();
 
-        System.out.print(doubleArrayStack.peek(stackIndex));
+        Object element = doubleArrayStack.peek(stackIndex);
+        if (element == null) {
+            System.out.print("A pilha está vazia!");
+            return;
+        }
+
+        System.out.print(element);
     }
 
     private static void actionFour() {
