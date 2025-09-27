@@ -10,22 +10,26 @@ public class DoubleArrayStack implements DoubleStackable {
     }
 
     public DoubleArrayStack(int length) {
-        this.pointTopStackOne = 0;
-        this.pointTopStackTwo = length / 2;
+        this.pointTopStackOne = -1;
+        this.pointTopStackTwo = (length / 2) - 1;
         this.data = new Object[length];
     }
 
     @Override
     public boolean push(int arrayStackIndex, Object data) {
+        if (this.isFull(arrayStackIndex)) {
+            return false;
+        }
+
         if (arrayStackIndex == 1) {
-            this.data[pointTopStackOne] = data;
             pointTopStackOne++;
+            this.data[pointTopStackOne] = data;
             return true;
         }
 
         if (arrayStackIndex == 2) {
-            this.data[pointTopStackTwo] = data;
             pointTopStackTwo++;
+            this.data[pointTopStackTwo] = data;
             return true;
         }
 
@@ -34,19 +38,25 @@ public class DoubleArrayStack implements DoubleStackable {
 
     @Override
     public Object pop(int arrayStackIndex) {
+        if (this.isEmpty(arrayStackIndex)) {
+            return null;
+        }
+
         if (arrayStackIndex == 1) {
+            Object element = this.data[pointTopStackOne];
             this.data[pointTopStackOne] = null;
             pointTopStackOne--;
-            return true;
+            return element;
         }
 
         if (arrayStackIndex == 2) {
+            Object element = this.data[pointTopStackTwo];
             this.data[pointTopStackTwo] = null;
             pointTopStackTwo--;
-            return true;
+            return element;
         }
 
-        return false;
+        return null;
     }
 
     @Override
@@ -78,11 +88,11 @@ public class DoubleArrayStack implements DoubleStackable {
     @Override
     public boolean isEmpty(int arrayStackIndex) {
         if (arrayStackIndex == 1) {
-            return pointTopStackOne == 0;
+            return pointTopStackOne == -1;
         }
 
         if (arrayStackIndex == 2) {
-            return pointTopStackTwo == (data.length / 2);
+            return pointTopStackTwo == (data.length / 2) - 1;
         }
 
         return true;
