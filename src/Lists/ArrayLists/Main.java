@@ -1,4 +1,4 @@
-package Lists.ArrayList;
+package Lists.ArrayLists;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -78,7 +78,7 @@ public class Main {
             return;
         }
 
-        System.out.print("A lista foi modificada!");
+        System.out.println("A lista foi modificada!");
     }
 
     private static void actionTwo() {
@@ -101,7 +101,7 @@ public class Main {
             return;
         }
 
-        System.out.print("A lista foi modificada!");
+        System.out.println("A lista foi modificada!");
     }
 
     private static void actionThree() {
@@ -131,7 +131,7 @@ public class Main {
             return;
         }
 
-        System.out.print(element);
+        System.out.println(element);
     }
 
     private static void actionFive() {
@@ -153,7 +153,7 @@ public class Main {
             return;
         }
 
-        System.out.print("A lista foi modificada!");
+        System.out.println("A lista foi modificada!");
     }
 
     public static void actionSix() {
@@ -173,6 +173,6 @@ public class Main {
     }
 
     public static void actionEight() {
-        arrayList.print();
+        System.out.println(arrayList.print());
     }
 }

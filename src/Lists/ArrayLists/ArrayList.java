@@ -1,4 +1,4 @@
-package Lists.ArrayList;
+package Lists.ArrayLists;
 
 import Lists.Listable;
 
@@ -25,7 +25,7 @@ public class ArrayList implements Listable {
             return null;
         }
 
-        if (index < 0) {
+        if (index < 0 || index > this.quantity) {
             throw new IndexOutOfBoundsException();
         }
 
@@ -56,7 +56,7 @@ public class ArrayList implements Listable {
             return false;
         }
 
-        if (index < 0) {
+        if (index < 0 || index > this.quantity) {
             throw new IndexOutOfBoundsException();
         }
 
@@ -91,7 +91,7 @@ public class ArrayList implements Listable {
             return false;
         }
 
-        if (index < 0) {
+        if (index < 0 || index > this.quantity) {
             throw new IndexOutOfBoundsException();
         }
 
@@ -106,7 +106,7 @@ public class ArrayList implements Listable {
             return null;
         }
 
-        if (index < 0) {
+        if (index < 0 || index > this.quantity) {
             throw new IndexOutOfBoundsException();
         }
 
