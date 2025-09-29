@@ -1,4 +1,4 @@
-package Queue;
+package Queues.ArrayQueue;
 
 public class ArrayQueue implements Queueable {
     private final Object[] data;
