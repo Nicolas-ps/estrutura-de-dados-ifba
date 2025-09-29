@@ -49,7 +49,7 @@ public class ArrayQueue implements Queueable {
 
     @Override
     public boolean isEmpty() {
-        return this.head == this.tail;
+        return this.tail == this.head - 1;
     }
 
     @Override
