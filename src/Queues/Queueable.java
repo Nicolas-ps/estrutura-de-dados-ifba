@@ -1,4 +1,4 @@
-package Queues.ArrayQueue;
+package Queues;
 
 public interface Queueable {
     boolean enqueue(Object data);

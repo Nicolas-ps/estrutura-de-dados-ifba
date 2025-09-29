@@ -1,5 +1,7 @@
 package Queues.ArrayQueue;
 
+import Queues.Queueable;
+
 public class ArrayQueue implements Queueable {
     private final Object[] data;
     private int head;

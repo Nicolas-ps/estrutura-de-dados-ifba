@@ -1,4 +1,4 @@
-package Stacks.Stack;
+package Stacks;
 
 public interface Stackable {
     boolean push(Object data);
