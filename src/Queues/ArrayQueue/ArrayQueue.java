@@ -2,7 +2,7 @@ package Queues.ArrayQueue;
 
 import Queues.Queueable;
 
-public class ArrayQueue implements Queueable {
+public class ArrayQueue implements Queueable<Object> {
     private final Object[] data;
     private int head;
     private int tail;
