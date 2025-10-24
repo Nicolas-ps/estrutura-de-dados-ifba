@@ -1,6 +1,6 @@
 package Queues;
 
-public interface Queueable {
+public interface Queueable<T> {
     boolean enqueue(Object data);
     Object dequeue();
     Object front();
