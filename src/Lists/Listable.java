@@ -1,14 +1,16 @@
 package Lists;
 
-public interface Listable {
-    boolean insert(Object data, int index);
-    boolean append(Object data);
-    Object select(int index);
-    Object[] selectAll();
-    boolean update(Object data, int index);
-    Object delete(int index);
+public interface Listable<T> {
+    boolean insert(T data, int index);
+    boolean append(T data);
+    T select(int index);
+    T[] selectAll();
+    boolean update(T data, int index);
+    T delete(int index);
     void clear();
     boolean isEmpty();
     boolean isFull();
     String print();
+    int size();
+
 }
