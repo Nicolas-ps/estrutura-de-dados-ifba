@@ -1,4 +1,4 @@
-package Stacks.DoubleStack;
+package stacks.doubleStack;
 
 public interface DoubleStackable {
     boolean push(int arrayStackIndex, Object data);

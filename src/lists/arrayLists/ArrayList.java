@@ -1,6 +1,6 @@
-package Lists.ArrayLists;
+package lists.arrayLists;
 
-import Lists.Listable;
+import lists.Listable;
 
 public class ArrayList implements Listable {
     private final Object[] data;
@@ -155,6 +155,11 @@ public class ArrayList implements Listable {
         }
 
         return "[" + buffer + "]";
+    }
+
+    @Override
+    public int size() {
+        return 0;
     }
 
     private int next(int index) {

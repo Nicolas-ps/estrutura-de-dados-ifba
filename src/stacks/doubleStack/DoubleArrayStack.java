@@ -1,4 +1,4 @@
-package Stacks.DoubleStack;
+package stacks.doubleStack;
 
 public class DoubleArrayStack implements DoubleStackable {
     private int pointTopStackOne;

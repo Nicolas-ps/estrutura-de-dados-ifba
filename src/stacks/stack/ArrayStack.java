@@ -1,6 +1,6 @@
-package Stacks.Stack;
+package stacks.stack;
 
-import Stacks.Stackable;
+import stacks.Stackable;
 
 public class ArrayStack implements Stackable {
     private final Object[] data;

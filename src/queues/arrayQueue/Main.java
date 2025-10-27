@@ -1,4 +1,4 @@
-package Queues.ArrayQueue;
+package queues.arrayQueue;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

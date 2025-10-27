@@ -1,4 +1,4 @@
-package Lists;
+package lists;
 
 public interface Listable<T> {
     boolean insert(T data, int index);

@@ -1,6 +1,6 @@
-package Queues.DoubleEndedQueue;
+package queues.doubleEndedQueue;
 
-import Queues.Queueable;
+import queues.Queueable;
 
 public class LinkedDEQue<T> implements Queueable<T> {
     private final int amount;

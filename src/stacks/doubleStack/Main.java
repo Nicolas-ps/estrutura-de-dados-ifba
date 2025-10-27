@@ -1,4 +1,4 @@
-package Stacks.DoubleStack;
+package stacks.doubleStack;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

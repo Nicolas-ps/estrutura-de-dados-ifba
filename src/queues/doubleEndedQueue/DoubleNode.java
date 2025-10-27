@@ -1,4 +1,4 @@
-package Queues.DoubleEndedQueue;
+package queues.doubleEndedQueue;
 
 /**
  * Classe que representa um nó duplamente encadeado.

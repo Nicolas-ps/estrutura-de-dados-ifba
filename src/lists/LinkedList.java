@@ -1,7 +1,7 @@
-package Lists;
+package lists;
 
-import Exceptions.OverflowException;
-import Queues.DoubleEndedQueue.DoubleNode;
+import exceptions.OverflowException;
+import queues.doubleEndedQueue.DoubleNode;
 
 public class LinkedList<T> implements Listable<T> {
     private DoubleNode<T> head;

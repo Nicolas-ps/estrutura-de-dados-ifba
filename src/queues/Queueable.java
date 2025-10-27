@@ -1,4 +1,4 @@
-package Queues;
+package queues;
 
 public interface Queueable<T> {
     boolean enqueue(Object data);

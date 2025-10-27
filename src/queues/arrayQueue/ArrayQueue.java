@@ -1,6 +1,6 @@
-package Queues.ArrayQueue;
+package queues.arrayQueue;
 
-import Queues.Queueable;
+import queues.Queueable;
 
 public class ArrayQueue implements Queueable<Object> {
     private final Object[] data;
