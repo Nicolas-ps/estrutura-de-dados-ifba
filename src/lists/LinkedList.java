@@ -1,12 +1,13 @@
 package lists;
 
 import exceptions.OverflowException;
+import exceptions.UnderflowException;
 import queues.doubleEndedQueue.DoubleNode;
 
 public class LinkedList<T> implements Listable<T> {
     private DoubleNode<T> head;
     private DoubleNode<T> tail;
-    private int capacity;
+    private final int capacity;
     private int amount;
 
     public LinkedList() {
@@ -34,17 +35,30 @@ public class LinkedList<T> implements Listable<T> {
         DoubleNode<T> newData = new DoubleNode<>();
         newData.setData(data);
 
-        tail.setNext(newData);
-        newData.setPrevious(tail);
+        if (! this.isEmpty()) {
+            this.tail.setNext(newData);
+        } else  {
+            this.head = newData;
+            newData.setPrevious(tail);
+            tail = newData;
+            this.amount++;
+        }
 
-        tail = newData;
-        this.amount++;
         return true;
     }
 
     @Override
     public T select(int index) {
-        return null;
+        if (this.isEmpty()) {
+            throw new UnderflowException();
+        }
+
+        DoubleNode<T> aux = head;
+        for (int i = 0; i < index; i++) {
+            aux = aux.getNext();
+        }
+
+        return aux.getData();
     }
 
     @Override
@@ -61,8 +75,22 @@ public class LinkedList<T> implements Listable<T> {
     }
 
     @Override
-    public boolean update(Object data, int index) {
-        return false;
+    public boolean update(T data, int index) {
+        if (this.isEmpty()) {
+            throw new UnderflowException();
+        }
+
+        if (index < 0 || index > this.amount - 1) {
+            throw new IndexOutOfBoundsException();
+        }
+
+        DoubleNode<T> aux = head;
+        for (int i = 0; i < index; i++) {
+            aux = aux.getNext();
+        }
+
+        aux.setData(data);
+        return true;
     }
 
     @Override
