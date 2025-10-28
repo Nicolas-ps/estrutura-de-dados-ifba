@@ -2,8 +2,8 @@ package lists.arrayLists;
 
 import lists.Listable;
 
-public class ArrayList implements Listable {
-    private final Object[] data;
+public class ArrayList<T> implements Listable<T> {
+    private final T[] data;
     private int head;
     private int tail;
     private int quantity;
@@ -13,14 +13,31 @@ public class ArrayList implements Listable {
     }
 
     public ArrayList(int length) {
-        this.data = new Object[length];
+        this.data = (T[]) new Object[length];
         this.head = 0;
         this.tail = -1;
         this.quantity = 0;
     }
 
     @Override
-    public Object select(int index) throws IndexOutOfBoundsException {
+    public boolean insert(T data, int index) {
+        return false;
+    }
+
+    @Override
+    public boolean append(T data) {
+        if (this.isFull()) {
+            return false;
+        }
+
+        this.tail++;
+        this.data[this.tail] = data;
+        this.quantity++;
+        return true;
+    }
+
+    @Override
+    public T select(int index) throws IndexOutOfBoundsException {
         if (this.isEmpty()) {
             return null;
         }
@@ -34,12 +51,12 @@ public class ArrayList implements Listable {
     }
 
     @Override
-    public Object[] selectAll() {
+    public T[] selectAll() {
         if (isEmpty()) {
             return null;
         }
 
-        Object[] buffer = new Object[this.quantity];
+        T[] buffer = (T[]) new Object[this.quantity];
         int index = head;
 
         for (int i = 0; i < this.quantity; i++) {
@@ -51,7 +68,7 @@ public class ArrayList implements Listable {
     }
 
     @Override
-    public boolean insert(Object data, int index) {
+    public boolean update(T data, int index) {
         if (this.isFull()) {
             return false;
         }
@@ -74,34 +91,7 @@ public class ArrayList implements Listable {
     }
 
     @Override
-    public boolean append(Object data) {
-        if (this.isFull()) {
-            return false;
-        }
-
-        this.tail++;
-        this.data[this.tail] = data;
-        this.quantity++;
-        return true;
-    }
-
-    @Override
-    public boolean update(Object data, int index) {
-        if (this.isEmpty()) {
-            return false;
-        }
-
-        if (index < 0 || index >= this.quantity) {
-            throw new IndexOutOfBoundsException();
-        }
-
-        int physicIndex = this.map(index);
-        this.data[physicIndex] = data;
-        return true;
-    }
-
-    @Override
-    public Object delete(int index) throws IndexOutOfBoundsException {
+    public T delete(int index) throws IndexOutOfBoundsException {
         if (this.isEmpty()) {
             return null;
         }
@@ -111,7 +101,7 @@ public class ArrayList implements Listable {
         }
 
         int physicIndex = this.map(index);
-        Object element = this.data[physicIndex];
+        T element = this.data[physicIndex];
 
         for (int i = physicIndex; i != tail; i = this.next(index)) {
             this.data[i] = this.data[this.next(i)];
